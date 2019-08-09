@@ -49,11 +49,11 @@ cat deployment/mutatingwebhook.yaml | \
 
 3. Deploy resources
 ```
-kubectl create -f deployment/nginxconfigmap.yaml
-kubectl create -f deployment/configmap.yaml
-kubectl create -f deployment/deployment.yaml
-kubectl create -f deployment/service.yaml
-kubectl create -f deployment/mutatingwebhook-ca-bundle.yaml
+kubectl apply -f deployment/nginxconfigmap.yaml
+kubectl apply -f deployment/configmap.yaml
+kubectl apply -f deployment/deployment.yaml
+kubectl apply -f deployment/service.yaml
+kubectl apply -f deployment/mutatingwebhook-ca-bundle.yaml
 ```
 
 ## Verify
@@ -96,7 +96,7 @@ spec:
     spec:
       containers:
       - name: sleep
-        image: tutum/curl
+        image: registry1.lab-1.cloud.local/curl:latest
         command: ["/bin/sleep","infinity"]
         imagePullPolicy: 
 EOF

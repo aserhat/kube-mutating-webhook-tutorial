@@ -1,0 +1,19 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sleep
+spec:
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        sidecar-injector-webhook.morven.me/inject: "yes"
+      labels:
+        app: sleep
+    spec:
+      containers:
+      - name: sleep
+        image: registry1.lab-1.cloud.local/curl:latest
+        command: ["/bin/sleep","infinity"]
+        imagePullPolicy:

@@ -6,7 +6,14 @@ data:
   sidecarconfig.yaml: |
     containers:
       - name: sidecar-nginx
-        image: nginx:1.12.2
+        image: registry1.lab-1.cloud.local/nginx:1.12.2
+        resources:
+          requests:
+            memory: "1Mi"
+            cpu: "1m"
+          limits:
+            memory: "2Mi"
+            cpu: "5m"
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 80
